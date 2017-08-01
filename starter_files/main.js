@@ -112,10 +112,20 @@ let container = document.getElementById('fields');
 
 for (var i = 0; i < formData.length; i++){
   if(formData[i].type === "select"){
-let select = document.createElement("select");
-select.option =formData[i].options
+   let select = document.createElement("select");
+    select.placeholder = formData[i].label;
+    for (var j = 0; j < formData[i].options.label; i++);
+    let option = document.createElement("option");
+option.label = formData[i].options[j].label;
+option.value = formData[i].options[j].value;
+
+fields.appendChild(select);
   }
   else if(formData[i].type === "textarea"){
+    let textarea = document.createElement("textarea");
+    textarea.placeholder = formData[i].label;
+    fields.appendChild(textarea)
+
 
   }
   else{
@@ -124,6 +134,6 @@ select.option =formData[i].options
     input.id = formData[i].id;
     input.placeholder = formData[i].label;
 
-    container.appendChild(input);
+    fields.appendChild(input);
   }
 }
